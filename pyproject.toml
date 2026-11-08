@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "toolbreach"
+version = "0.0.0"
+description = "Red-team your own tool-using LLM agents in CI: own the tool channel, turn findings into regression tests."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "toolbreach contributors" }]
+keywords = ["llm", "agents", "red-team", "security", "ci", "langgraph", "pytest"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Framework :: Pytest",
+]
+dependencies = [
+    "pydantic>=2.9",
+    "pyyaml>=6.0",
+    "typer>=0.12",
+    "genai-prices",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.24",
+    "pyright>=1.1.390",
+    "ruff>=0.8",
+    "import-linter>=2.1",
+    "polyfactory>=2.18",
+]
+
+[project.urls]
+Homepage = "https://github.com/OWNER/toolbreach"
+Source = "https://github.com/OWNER/toolbreach"
+
+[project.scripts]
+toolbreach = "toolbreach.cli:app"
+
+[project.entry-points.pytest11]
+toolbreach = "toolbreach.pytest_plugin"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/toolbreach"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "ASYNC"]
+
+[tool.pyright]
+include = ["src", "tests"]
+pythonVersion = "3.11"
+typeCheckingMode = "standard"
+venvPath = "."
+venv = ".venv"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
