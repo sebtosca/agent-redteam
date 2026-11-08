@@ -1,6 +1,10 @@
 # toolbreach run outputs (D1)
 .toolbreach/
 
+# Markdown: ignore all .md anywhere, except README.md
+*.md
+!README.md
+
 # Python
 __pycache__/
 *.py[cod]
