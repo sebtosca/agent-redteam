@@ -4,6 +4,12 @@ Import domain types from here (``from toolbreach.core import ToolCall``) rather
 than reaching into ``toolbreach.core.models``.
 """
 
+from toolbreach.core.authorization import (
+    Authorization,
+    AuthorizationError,
+    AuthorizationRecord,
+    require_authorization,
+)
 from toolbreach.core.models import (
     AdaptiveCase,
     Breach,
@@ -24,6 +30,9 @@ from toolbreach.core.models import (
 
 __all__ = [
     "AdaptiveCase",
+    "Authorization",
+    "AuthorizationError",
+    "AuthorizationRecord",
     "Breach",
     "BreachKind",
     "CaseBase",
@@ -38,4 +47,5 @@ __all__ = [
     "Specialist",
     "ToolCall",
     "Trial",
+    "require_authorization",
 ]

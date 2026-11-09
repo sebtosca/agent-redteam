@@ -1,4 +1,5 @@
 authorization:
+  accepted: true
   owner_declaration: "I own or am permitted to test this target."
 target:
   purpose: "Customer support agent for ACME orders."

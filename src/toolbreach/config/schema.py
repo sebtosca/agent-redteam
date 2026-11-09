@@ -2,7 +2,7 @@ from enum import StrEnum
 
 from pydantic import Field, model_validator
 
-from toolbreach.core import Frozen
+from toolbreach.core import Authorization, Frozen
 
 
 class ToolMode(StrEnum):
@@ -14,9 +14,6 @@ class ToolSpec(Frozen):
     mode: ToolMode = Field(
         default=ToolMode.INTERCEPTED
     )
-
-class Authorization(Frozen):
-    owner_declaration: str = Field(min_length=1)
 
 class TargetProfile(Frozen):
     purpose: str = Field(min_length=1)

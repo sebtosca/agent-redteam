@@ -1,4 +1,5 @@
 authorization:
+  accepted: true
   owner_declaration: "I own this target."
 target:
   purpose: "Chat endpoint, no tools."
