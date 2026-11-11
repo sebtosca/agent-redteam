@@ -10,6 +10,14 @@ from toolbreach.core.authorization import (
     AuthorizationRecord,
     require_authorization,
 )
+from toolbreach.core.event_log import Event, EventLog
+from toolbreach.core.interceptor import (
+    Interceptor,
+    acall_tool,
+    active_interceptor,
+    bind,
+    call_tool,
+)
 from toolbreach.core.models import (
     AdaptiveCase,
     Breach,
@@ -39,13 +47,20 @@ __all__ = [
     "CaseKind",
     "Decision",
     "DecisionKind",
+    "Event",
+    "EventLog",
     "Finding",
     "Frozen",
     "FrozenCase",
+    "Interceptor",
     "Objective",
     "RegressionCase",
     "Specialist",
     "ToolCall",
     "Trial",
+    "acall_tool",
+    "active_interceptor",
+    "bind",
+    "call_tool",
     "require_authorization",
 ]
