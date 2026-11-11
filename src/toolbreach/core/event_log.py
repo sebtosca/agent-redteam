@@ -44,5 +44,5 @@ class EventLog:
     def events(self) -> tuple[Event, ...]:
         return tuple(self._events)
     
-
+    
 
