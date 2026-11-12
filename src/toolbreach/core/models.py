@@ -1,10 +1,3 @@
-"""Core domain models for toolbreach.
-
-Framework-free on purpose: no langchain / langgraph imports may appear in this
-module. The import-boundary test enforces that. Every model is frozen and
-rejects unknown fields, so each record is immutable and self-validating.
-"""
-
 import json
 from enum import StrEnum
 from typing import Annotated, Any, Literal
